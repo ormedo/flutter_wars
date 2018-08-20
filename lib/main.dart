@@ -49,9 +49,11 @@ class _MainPageState extends State<MainPage> with SingleTickerProviderStateMixin
   }
 
   Future loadData() async {
-    await model.fetchFilms();
-    await model.fetchCharacters();
-    await model.fetchPlanets();
+    await Future.wait([
+      model.fetchFilms(),
+      model.fetchCharacters(),
+      model.fetchPlanets()
+    ]);
   }
 
   @override
@@ -97,13 +99,11 @@ class _MainPageState extends State<MainPage> with SingleTickerProviderStateMixin
   Widget refreshButton() {
     return ScopedModelDescendant<MainPageViewModel>(
       builder: (context, child, model) {
-        if (model.noInternetConnection == false)
-          return Container(width: 0.0, height: 0.0,);
-
         return FloatingActionButton(
           backgroundColor: Theme.of(context).primaryColorLight,
           child: Icon(Icons.refresh),
           onPressed: () => loadData(),
+
         );
       },
     );
