@@ -62,7 +62,7 @@ class _MainPageState extends State<MainPage> with SingleTickerProviderStateMixin
       appBar: AppBar(
         centerTitle: true,
         title: Text(
-          'Star Wars',
+          'Flutter Wars',
           style: TextStyle(
             fontFamily: 'Distant Galaxy',
           ),

@@ -69,3 +69,7 @@ flutter:
   #
   # For details regarding fonts from package dependencies,
   # see https://flutter.io/custom-fonts/#from-packages
+  fonts:
+    - family: 'Distant Galaxy'
+      fonts:
+        - asset: fonts/DISTGRG_.ttf
