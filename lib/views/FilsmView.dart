@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_wars/models/Film.dart';
 import 'package:flutter_wars/view_models/MainPageViewModel.dart';
+import 'package:flutter_wars/views/styles/StarWarsStyles.dart';
 import 'package:scoped_model/scoped_model.dart';
 
 class FilmView extends StatelessWidget {
@@ -55,9 +56,9 @@ class FilmsListItem extends StatelessWidget {
     return Text(
       film?.title,
       style: TextStyle(
-        //color: StarWarsStyles.titleColor,
+        color: StarWarsStyles.titleColor,
         fontWeight: FontWeight.bold,
-       // fontSize: StarWarsStyles.titleFontSize,
+        fontSize: StarWarsStyles.titleFontSize,
       ),
     );
   }
@@ -67,15 +68,15 @@ class FilmsListItem extends StatelessWidget {
       children: <Widget>[
         Icon(
           Icons.movie,
-        //  color: StarWarsStyles.subTitleColor,
-        //  size: StarWarsStyles.subTitleFontSize,
+          color: StarWarsStyles.subTitleColor,
+          size: StarWarsStyles.subTitleFontSize,
         ),
         Container(
           margin: const EdgeInsets.only(left: 4.0),
           child: Text(
             film?.director,
             style: TextStyle(
-             // color: StarWarsStyles.subTitleColor,
+              color: StarWarsStyles.subTitleColor,
             ),
           ),
         ),

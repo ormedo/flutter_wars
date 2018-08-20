@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_wars/models/Planet.dart';
 import 'package:flutter_wars/view_models/MainPageViewModel.dart';
+import 'package:flutter_wars/views/styles/StarWarsStyles.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:scoped_model/scoped_model.dart';
 
 class PlanetView extends StatelessWidget {
@@ -55,9 +57,9 @@ class PlanetListItem extends StatelessWidget {
     return Text(
       planet?.name,
       style: TextStyle(
-        //color: StarWarsStyles.titleColor,
+        color: StarWarsStyles.titleColor,
         fontWeight: FontWeight.bold,
-        // fontSize: StarWarsStyles.titleFontSize,
+        fontSize: StarWarsStyles.titleFontSize,
       ),
     );
   }
@@ -66,16 +68,16 @@ class PlanetListItem extends StatelessWidget {
     return Row(
       children: <Widget>[
         Icon(
-          Icons.supervisor_account,
-          //  color: StarWarsStyles.subTitleColor,
-          //  size: StarWarsStyles.subTitleFontSize,
+          FontAwesomeIcons.users,
+          color: StarWarsStyles.subTitleColor,
+          size: StarWarsStyles.subTitleFontSize,
         ),
         Container(
-          margin: const EdgeInsets.only(left: 4.0),
+          margin: const EdgeInsets.only(left: 7.0),
           child: Text(
             planet?.population,
             style: TextStyle(
-              // color: StarWarsStyles.subTitleColor,
+              color: StarWarsStyles.subTitleColor,
             ),
           ),
         ),
