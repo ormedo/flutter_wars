@@ -4,29 +4,18 @@ import 'package:flutter_wars/models/Character.dart';
 import 'package:flutter_wars/view_models/CharacterDetailPageViewModel.dart';
 import 'package:scoped_model/scoped_model.dart';
 
-class CharacterDetailPage extends StatefulWidget {
-  final Character character;
+class CharacterDetailPage extends StatelessWidget {
 
-  CharacterDetailPage({@required this.character});
-
-  @override
-  _CharacterDetailPageState createState() => _CharacterDetailPageState();
-}
-
-class _CharacterDetailPageState extends State<CharacterDetailPage> {
   CharacterDetailPageViewModel model;
 
-  _CharacterDetailPageState({CharacterDetailPageViewModel model}) {
+  CharacterDetailPage({@required Character character,
+      CharacterDetailPageViewModel model}) {
     model == null
         ? this.model = sl.get<CharacterDetailPageViewModel>()
         : this.model = model;
+    model.character = character;
   }
 
-  @override
-  void initState() {
-    super.initState();
-    model.character = widget.character;
-  }
 
   @override
   Widget build(BuildContext context) {
@@ -46,7 +35,7 @@ class _CharacterDetailPageState extends State<CharacterDetailPage> {
               centerTitle: true,
               title: ScopedModelDescendant(builder: (context, child, model) {
                 return Text(
-                  widget.character.name,
+                  model.character.name,
                   style: TextStyle(fontFamily: 'Distant Galaxy'),
                 );
               })),
@@ -62,15 +51,15 @@ class _CharacterDetailPageState extends State<CharacterDetailPage> {
                     mainAxisAlignment: MainAxisAlignment.start,
                     children: [
                       _buildCharacterCaracteristicRow(
-                          "Name", widget.character.name),
+                          "Name", model.character.name),
                       _buildCharacterCaracteristicRow(
-                          "Height", widget.character.height.toString()),
+                          "Height", model.character.height.toString()),
                       _buildCharacterCaracteristicRow(
-                          "BirthYear", widget.character.birthYear),
+                          "BirthYear", model.character.birthYear),
                       _buildCharacterCaracteristicRow(
-                          "Eye Color", widget.character.eyeColor),
+                          "Eye Color", model.character.eyeColor),
                       _buildCharacterCaracteristicRow(
-                          "Gender", widget.character.gender),
+                          "Gender", model.character.gender),
                     ]);
               },
             ),
