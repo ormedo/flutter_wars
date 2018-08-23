@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_wars/models/Character.dart';
+import 'package:flutter_wars/router/FadeRouteAnimation.dart';
 import 'package:flutter_wars/view_models/MainPageViewModel.dart';
+import 'package:flutter_wars/views/CharacterDetail/CharacterDetailPage.dart';
 import 'package:flutter_wars/views/styles/StarWarsStyles.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:scoped_model/scoped_model.dart';
@@ -10,7 +12,7 @@ class CharacterView extends StatelessWidget {
   Widget build(BuildContext context) {
     return ScopedModelDescendant<MainPageViewModel>(
       builder: (context, child, model) {
-        if (model.noInternetConnection){
+        if (model.noInternetConnection) {
           return new Center(
             child: new Text('No Internet Conection'),
           );
@@ -26,7 +28,9 @@ class CharacterView extends StatelessWidget {
           itemCount: model.characters == null ? 0 : model.characters.length,
           itemBuilder: (_, int index) {
             var character = model.characters[index];
-            return CharacterListItem(character: character);
+            return CharacterListItem(
+              character: character,
+            );
           },
         );
       },
@@ -36,26 +40,28 @@ class CharacterView extends StatelessWidget {
 
 class CharacterListItem extends StatelessWidget {
   final Character character;
-
   CharacterListItem({@required this.character});
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      children: <Widget>[
-        ListTile(
-          leading: Icon(
-            _affiliationSymbol(),
-            color: Theme.of(context).primaryColorLight,
-            size: 40.0,
-          ),
-          contentPadding: const EdgeInsets.symmetric(horizontal: 20.0),
-          title: _title(),
-          subtitle: _subTitle(),
-        ),
-        Divider(),
-      ],
-    );
+    return new Container(
+        color: Colors.white70,
+        child: Column(children: <Widget>[
+          ListTile(
+              leading: Icon(
+                _affiliationSymbol(),
+                color: Theme.of(context).primaryColor,
+                size: 40.0,
+              ),
+              contentPadding: const EdgeInsets.symmetric(horizontal: 20.0),
+              title: _title(),
+              subtitle: _subTitle(),
+              onTap: () => Navigator.of(context).push(new FadeRouteAnimation(
+                  builder: (c) {
+                    return new CharacterDetailPage(character: character);
+                  },
+                  settings: new RouteSettings())))
+        ]));
   }
 
   Widget _title() {

@@ -1,13 +1,13 @@
 import 'dart:async';
 import 'package:flutter_wars/ServiceLocator.dart';
 import 'package:flutter_wars/services/IStarWarsApi.dart';
-import 'package:flutter_wars/views/CharacterView.dart';
-import 'package:flutter_wars/views/PlanetView.dart';
+import 'package:flutter_wars/views/MainPage/CharacterView.dart';
+import 'package:flutter_wars/views/MainPage/PlanetView.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_wars/services/Swapi.dart';
 import 'package:flutter_wars/view_models/MainPageViewModel.dart';
-import 'package:flutter_wars/views/FilsmView.dart';
+import 'package:flutter_wars/views/MainPage/FilsmView.dart';
 import 'package:scoped_model/scoped_model.dart';
 
 
@@ -37,13 +37,17 @@ class MainPage extends StatefulWidget {
 }
 
 class _MainPageState extends State<MainPage> with SingleTickerProviderStateMixin {
+
+  _MainPageState({ MainPageViewModel model = null }){
+    model == null ? this.model = sl.get<MainPageViewModel>() : this.model = model;
+  }
+
   MainPageViewModel model;
   TabController tabController;
 
   @override
   void initState() {
     super.initState();
-    model = sl.get<MainPageViewModel>();
     tabController = TabController(vsync: this, length: 3);
     loadData();
   }

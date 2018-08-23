@@ -10,7 +10,7 @@ class PlanetView extends StatelessWidget {
   Widget build(BuildContext context) {
     return ScopedModelDescendant<MainPageViewModel>(
       builder: (context, child, model) {
-        if (model.noInternetConnection){
+        if (model.noInternetConnection) {
           return new Center(
             child: new Text('No Internet Conection'),
           );
@@ -41,16 +41,18 @@ class PlanetListItem extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      children: <Widget>[
-        ListTile(
-          contentPadding: const EdgeInsets.symmetric(horizontal: 20.0),
-          title: _title(),
-          subtitle: _subTitle(),
-        ),
-        Divider(),
-      ],
-    );
+    return new Container(
+        color: Colors.white70,
+        child: Column(
+          children: <Widget>[
+            ListTile(
+              contentPadding: const EdgeInsets.symmetric(horizontal: 20.0),
+              title: _title(),
+              subtitle: _subTitle(),
+            ),
+            Divider(),
+          ],
+        ));
   }
 
   Widget _title() {
