@@ -10,7 +10,7 @@ class CharacterDetailPage extends StatefulWidget {
   CharacterDetailPage({@required this.character});
 
   @override
-  _CharacterDetailPageState createState() => new _CharacterDetailPageState();
+  _CharacterDetailPageState createState() => _CharacterDetailPageState();
 }
 
 class _CharacterDetailPageState extends State<CharacterDetailPage> {
@@ -30,8 +30,8 @@ class _CharacterDetailPageState extends State<CharacterDetailPage> {
 
   @override
   Widget build(BuildContext context) {
-    var linearGradient = new BoxDecoration(
-      gradient: new LinearGradient(
+    var linearGradient = BoxDecoration(
+      gradient: LinearGradient(
           begin: FractionalOffset.centerRight,
           end: FractionalOffset.bottomLeft,
           colors: [Colors.white70, Colors.white]),
@@ -41,17 +41,17 @@ class _CharacterDetailPageState extends State<CharacterDetailPage> {
 
     return ScopedModel(
         model: model,
-        child: new Scaffold(
+        child: Scaffold(
           appBar: AppBar(
               centerTitle: true,
               title: ScopedModelDescendant(builder: (context, child, model) {
-                return new Text(
+                return Text(
                   widget.character.name,
                   style: TextStyle(fontFamily: 'Distant Galaxy'),
                 );
               })),
           body: new SingleChildScrollView(
-              child: new Container(
+              child: Container(
             decoration: linearGradient,
             height: screenHeight,
             width: screenWidth,

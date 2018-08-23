@@ -53,7 +53,7 @@ class _MainPageState extends State<MainPage> with SingleTickerProviderStateMixin
         bottom: TabBar(
           controller: tabController,
           indicatorColor: Colors.white,
-          indicatorWeight: 3.0,
+          indicatorWeight: 1.0,
           tabs: <Widget>[
             Tab(icon: Icon(FontAwesomeIcons.film), text: 'Films',),
             Tab(icon: Icon(FontAwesomeIcons.users), text: 'Characters',),
