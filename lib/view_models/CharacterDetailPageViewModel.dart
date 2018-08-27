@@ -3,7 +3,7 @@ import 'package:scoped_model/scoped_model.dart';
 
 class CharacterDetailPageViewModel extends Model {
   Character _character;
-  Character get films => _character;
+  Character get character => _character;
   set character(Character value) {
     _character = value;
     notifyListeners();

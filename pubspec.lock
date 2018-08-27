@@ -117,7 +117,7 @@ packages:
     source: hosted
     version: "0.13.3+2"
   http:
-    dependency: transitive
+    dependency: "direct main"
     description:
       name: http
       url: "https://pub.dartlang.org"
@@ -151,6 +151,13 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "0.6.1+1"
+  json_annotation:
+    dependency: "direct main"
+    description:
+      name: json_annotation
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "0.2.9+1"
   json_rpc_2:
     dependency: transitive
     description:
@@ -256,6 +263,13 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "2.0.0+1"
+  rxdart:
+    dependency: "direct main"
+    description:
+      name: rxdart
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "0.18.1"
   scoped_model:
     dependency: "direct main"
     description:

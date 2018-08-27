@@ -6,8 +6,6 @@ import 'package:flutter_wars/models/Planet.dart';
 import 'package:flutter_wars/services/IStarWarsApi.dart';
 import 'package:http/http.dart' as http;
 
-
-
 class Swapi extends IStarWarsApi {
   final _baseUrl = 'https://swapi.co/api';
 
@@ -23,11 +21,11 @@ class Swapi extends IStarWarsApi {
 
     List<Film> films = filmsData
         .map((fl) => Film(
-      title: fl['title'],
-      director: fl['director'],
-      producer: fl['producer'],
-      releaseDate: DateTime.parse(fl['release_date']),
-    ))
+              title: fl['title'],
+              director: fl['director'],
+              producer: fl['producer'],
+              releaseDate: DateTime.parse(fl['release_date']),
+            ))
         .toList();
 
     return films;
@@ -40,12 +38,12 @@ class Swapi extends IStarWarsApi {
 
     List<Character> characters = charactersData
         .map((ch) => Character(
-      name: ch['name'],
-      birthYear: ch['birth_year'],
-      gender: ch['gender'],
-      height: int.parse(ch['height']),
-      eyeColor: ch['eye_color'],
-    ))
+              name: ch['name'],
+              birthYear: ch['birth_year'],
+              gender: ch['gender'],
+              height: int.parse(ch['height']),
+              eyeColor: ch['eye_color'],
+            ))
         .toList();
 
     return characters;
@@ -58,13 +56,13 @@ class Swapi extends IStarWarsApi {
 
     List<Planet> planets = planetsData
         .map((pl) => Planet(
-      name: pl['name'],
-      climate: pl['climate'],
-      terrain: pl['terrain'],
-      diameter: int.parse(pl['diameter']),
-      gravity: pl['gravity'],
-      population: pl['population'],
-    ))
+              name: pl['name'],
+              climate: pl['climate'],
+              terrain: pl['terrain'],
+              diameter: int.parse(pl['diameter']),
+              gravity: pl['gravity'],
+              population: pl['population'],
+            ))
         .toList();
 
     return planets;

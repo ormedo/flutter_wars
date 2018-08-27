@@ -13,9 +13,8 @@ class CharacterDetailPage extends StatelessWidget {
     model == null
         ? this.model = sl.get<CharacterDetailPageViewModel>()
         : this.model = model;
-    model.character = character;
+    this.model.character = character;
   }
-
 
   @override
   Widget build(BuildContext context) {
@@ -28,12 +27,12 @@ class CharacterDetailPage extends StatelessWidget {
     var screenWidth = MediaQuery.of(context).size.width;
     var screenHeight = MediaQuery.of(context).size.height;
 
-    return ScopedModel(
+    return ScopedModel<CharacterDetailPageViewModel>(
         model: model,
         child: Scaffold(
           appBar: AppBar(
               centerTitle: true,
-              title: ScopedModelDescendant(builder: (context, child, model) {
+              title: ScopedModelDescendant<CharacterDetailPageViewModel>(builder: (context, child, model) {
                 return Text(
                   model.character.name,
                   style: TextStyle(fontFamily: 'Distant Galaxy'),
@@ -44,7 +43,7 @@ class CharacterDetailPage extends StatelessWidget {
             decoration: linearGradient,
             height: screenHeight,
             width: screenWidth,
-            child: ScopedModelDescendant(
+            child: ScopedModelDescendant<CharacterDetailPageViewModel>(
               builder: (context, child, model) {
                 return Column(
                     crossAxisAlignment: CrossAxisAlignment.center,
@@ -64,7 +63,8 @@ class CharacterDetailPage extends StatelessWidget {
               },
             ),
           )),
-        ));
+        )
+    );
   }
 
   Widget _buildCharacterCaracteristicRow(String title, String value) {
